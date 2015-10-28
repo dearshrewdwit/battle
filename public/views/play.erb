@@ -4,11 +4,18 @@
 </head>
 <body>
   <h1><%=@player_1%> vs <%=@player_2%></h1>
+
+  <form action="/attack">
+    <input type="submit" value="Attack!">
+  </form>
+
   <div id=player1_hitpoints>
     <h2><%=@player_1%>: 100hp</h2>
   </div>
+
   <div id=player2_hitpoints>
     <h2><%=@player_2%>: 100hp</h2>
   </div>
+
 </body>
 </html>
