@@ -18,8 +18,4 @@ feature 'Enter names' do
     expect(page).to have_content("Edward attacked Octavian!")
   end
 
-  scenario 'get attack confirmation' do
-
-  end
-
 end
