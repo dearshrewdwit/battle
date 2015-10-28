@@ -1,11 +1,8 @@
 
 feature 'Enter names' do
-
+  
   before do
-    visit('/')
-    fill_in :player_1, with: 'Edward'
-    fill_in :player_2, with: 'Octavian'
-    click_button 'Submit'
+    sign_in_and_play
   end
 
   scenario 'submitting names' do
