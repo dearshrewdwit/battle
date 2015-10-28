@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/player'
+require_relative './lib/damage_calculator'
 
 
 class Battle < Sinatra::Base
@@ -14,8 +15,6 @@ enable :sessions
     p params
     $player_1 = Player.new(params[:player_1])
     $player_2 = Player.new(params[:player_2])
-    # @player_1 = params[:player_1]
-    # @player_2 = params[:player_2]
     redirect '/play'
   end
 
@@ -32,6 +31,7 @@ enable :sessions
     @player_2 = $player_2.name
     @health1 = $player_1.health
     @health2 = $player_2.health
+    @damage = DamageCalculator.new.randomize
     erb :attack
   end
 
