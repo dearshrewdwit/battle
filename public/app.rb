@@ -22,12 +22,16 @@ enable :sessions
   get '/play' do
     @player_1 = $player_1.name
     @player_2 = $player_2.name
+    @health1 = $player_1.health
+    @health2 = $player_2.health
     erb :play
   end
 
   get '/attack' do
     @player_1 = $player_1.name
     @player_2 = $player_2.name
+    @health1 = $player_1.health
+    @health2 = $player_2.health
     erb :attack
   end
 
