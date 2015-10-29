@@ -23,9 +23,13 @@ enable :sessions
     erb :play
   end
 
-  post '/play' do
+  post '/p1_check' do
     $game.attack($game.player2)
-    redirect '/attack'
+    if $game.player2.health <= 0
+      redirect '/lose'
+    else
+      redirect '/attack'
+    end
   end
 
   get '/attack' do
@@ -44,9 +48,13 @@ enable :sessions
     erb :playp2
   end
 
-  post '/play_p2' do
+  post '/p2_check' do
     $game.attack($game.player1)
-    redirect '/attack_p2'
+    if $game.player1.health <= 0
+      redirect '/lose'
+    else
+      redirect '/attack_p2'
+    end
   end
 
   get '/attack_p2' do
@@ -57,6 +65,10 @@ enable :sessions
 
   post '/attack' do
     redirect '/play'
+  end
+
+  get '/lose' do
+    erb :lose
   end
 
   # start the server if ruby file executed directly
