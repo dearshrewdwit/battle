@@ -1,4 +1,4 @@
-# require 'damage_calculator'
+require_relative 'damage_calculator'
 
 class Player
 
@@ -11,12 +11,12 @@ class Player
     @health = DEFAULT_HEALTH
   end
 
-  def attack
-    DamageCalculator.randomize
+  def receive_damage
+    @health -= damage
   end
 
-  def receive_damage(attack)
-    @health -= attack
+  def damage
+    DamageCalculator.randomize
   end
 
 end
