@@ -23,7 +23,7 @@ enable :sessions
     erb :play
   end
 
-   post '/play' do
+  post '/play' do
     $game.attack($game.player2)
     redirect '/attack'
   end
