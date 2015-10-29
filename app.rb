@@ -34,6 +34,31 @@ enable :sessions
     erb :attack
   end
 
+  post '/attack' do
+    redirect '/play_p2'
+  end
+
+  get '/play_p2' do
+    @player_1 = $game.player1
+    @player_2 = $game.player2
+    erb :playp2
+  end
+
+  post '/play_p2' do
+    $game.attack($game.player1)
+    redirect '/attack_p2'
+  end
+
+  get '/attack_p2' do
+    @player_1 = $game.player1
+    @player_2 = $game.player2
+    erb :attackp2
+  end
+
+  post '/attack' do
+    redirect '/play'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
