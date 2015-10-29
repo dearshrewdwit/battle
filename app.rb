@@ -68,6 +68,11 @@ enable :sessions
   end
 
   get '/lose' do
+    if $game.player1.health > $game.player2.health
+       @loser = $game.player2
+    else
+       @loser = $game.player1
+    end
     erb :lose
   end
 
