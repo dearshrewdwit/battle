@@ -12,10 +12,4 @@ feature 'Enter names' do
   scenario 'see hit points' do
     expect(page).to have_content 'Octavian: 100hp'
   end
-
-  scenario 'attack player 2' do
-    click_button('Attack!')
-    expect(page).to have_content("Edward attacked Octavian!")
-  end
-
 end
