@@ -19,19 +19,20 @@ enable :sessions
   end
 
   get '/play' do
-    @player_1 = $player_1.name
-    @player_2 = $player_2.name
-    @health1 = $player_1.health
-    @health2 = $player_2.health
+    @player_1 = $player_1
+    @player_2 = $player_2
     erb :play
   end
 
+  # post '/play' do
+  #
+  #   redirect '/attack'
+  # end
+
   get '/attack' do
-    @player_1 = $player_1.name
-    @player_2 = $player_2.name
-    @health1 = $player_1.health
-    @health2 = $player_2.health
-    @damage = DamageCalculator.new.randomize
+    $player_2.receive_damage($player_1.attack)
+    @player_1 = $player_1
+    @player_2 = $player_2
     erb :attack
   end
 

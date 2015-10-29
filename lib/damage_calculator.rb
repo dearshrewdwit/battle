@@ -6,8 +6,8 @@ class DamageCalculator
     @amount = amount
   end
 
-  def randomize
+  def self.randomize
     @amount = rand(0..20)
   end
-  
+
 end
