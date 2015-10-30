@@ -25,11 +25,7 @@ enable :sessions
 
   post '/p1_check' do
     $game.attack($game.player2)
-    if $game.player2.health <= 0
-      redirect '/lose'
-    else
-      redirect '/attack'
-    end
+    $game.player2.health <= 0 ? (redirect '/lose') : (redirect '/attack')
   end
 
   get '/attack' do
@@ -50,11 +46,7 @@ enable :sessions
 
   post '/p2_check' do
     $game.attack($game.player1)
-    if $game.player1.health <= 0
-      redirect '/lose'
-    else
-      redirect '/attack_p2'
-    end
+    $game.player1.health <= 0 ? (redirect '/lose') : (redirect '/attack_p2')
   end
 
   get '/attack_p2' do
